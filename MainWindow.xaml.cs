@@ -45,11 +45,23 @@ namespace Tidsrapportering
             minLista.Add(nyttArbete);
 
             
-            MyListBox.Items.Add(nyttArbete.Date + " kl. " + nyttArbete.WorkStart + "-" + nyttArbete.WorkEnd + " Uppdrag: " + nyttArbete.WorkType + " Namn: " + nyttArbete.Name);    
-            
+            MyListBox.Items.Add(nyttArbete.Date + " kl. " + nyttArbete.WorkStart + "-" + nyttArbete.WorkEnd + " Uppdrag: " + nyttArbete.WorkType + " Namn: " + nyttArbete.Name);
+
+            CleanWindow();
         }
 
-        private void ShowComment(object sender, RoutedEventArgs e)
+        public void CleanWindow()
+        {
+        nameBox.Text = "";
+        dateBox.Text = "";
+        ArbeteStartBox.Text = "";
+        ArbeteAvslutBox.Text = "";
+        WorkBox.Text = "";
+        CommentBox.Text = "";
+        }
+
+
+            private void ShowComment(object sender, RoutedEventArgs e)
         {
             if (MyListBox.SelectedItem != null)
             {
@@ -58,5 +70,8 @@ namespace Tidsrapportering
             }
         }
     }
+   
     }
+
+    
 
