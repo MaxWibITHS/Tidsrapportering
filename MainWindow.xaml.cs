@@ -49,9 +49,13 @@ namespace Tidsrapportering
             
         }
 
-        private void MyListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ShowComment(object sender, RoutedEventArgs e)
         {
-
+            if (MyListBox.SelectedItem != null)
+            {
+                ArbetsInfo arbete = minLista[MyListBox.SelectedIndex];
+                MessageBox.Show(arbete.Comment.ToString());
+            }
         }
     }
     }

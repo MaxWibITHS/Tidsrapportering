@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tidsrapportering"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="900">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="179*"/>
@@ -17,7 +17,15 @@
         <TextBox Name="nameBox" HorizontalAlignment="Left" Margin="151,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Height="27"/>
         <TextBlock HorizontalAlignment="Left" Margin="42,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" Height="23" FontSize="14"><Run Language="sv-se" Text="Arbetet påbörjat"/><LineBreak/><Run Language="sv-se"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="204,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="114" FontSize="14"><Run Language="sv-se" Text="Arbetet avslutat"/><LineBreak/><Run Language="sv-se"/></TextBlock>
-        <ListBox x:Name="MyListBox" Margin="481,42,25,44" Grid.RowSpan="2" SelectionChanged="MyListBox_SelectionChanged"/>
+        <ListBox x:Name="MyListBox" Margin="481,42,25,44" Grid.RowSpan="2"  MouseDoubleClick="ShowComment" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <TextBlock HorizontalAlignment="Left" Margin="42,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Height="21" Width="92"><Run Text="Beskrivning"/><Run Language="sv-se" Text=":"/><LineBreak/><Run/></TextBlock>
         <TextBox x:Name="WorkBox" HorizontalAlignment="Left" Margin="36,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="33"/>
         <ComboBox x:Name="ArbeteStartBox" HorizontalAlignment="Left" Margin="42,142,0,0" VerticalAlignment="Top" Width="120" Height="22">
